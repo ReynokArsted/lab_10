@@ -7,23 +7,20 @@ import (
 )
 
 type Server struct {
-	maxSize int
-
 	server  *echo.Echo
 	address string
 
 	uc Usecase
 }
 
-func NewServer(ip string, port int, maxSize int, uc Usecase) *Server {
+func NewServer(ip string, port int, uc Usecase) *Server {
 	api := Server{
-		maxSize: maxSize,
-		uc:      uc,
+		uc: uc,
 	}
 
 	api.server = echo.New()
-	api.server.GET("/hello", api.GetHello)
-	api.server.POST("/hello", api.PostHello)
+	api.server.GET("/", api.GetCount)
+	api.server.POST("/", api.SetCount)
 
 	api.address = fmt.Sprintf("%s:%d", ip, port)
 
