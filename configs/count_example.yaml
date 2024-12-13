@@ -1,13 +1,11 @@
 ip: "127.0.0.1"
-port: 8081
+port: 8083
 api:
   max_message_size: 32
-usecase:
-  default_message: "hello!"
 db:
   host: "localhost"
   port: 5432
-  user: "postgres"
+  user: "RA"
   password: "postgres"
   dbname: "sandbox"
   
